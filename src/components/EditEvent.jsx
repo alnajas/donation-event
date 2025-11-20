@@ -29,7 +29,7 @@ function EditEvent({ eventData, events, setEvents }) {
   const [localEvent, setLocalEvent] = useState(eventData);
 
   const handleOpen = () => {
-    setLocalEvent(eventData); // load fresh data each time
+    setLocalEvent(eventData);
     setOpen(true);
   };
   const handleClose = () => setOpen(false);
@@ -48,7 +48,7 @@ function EditEvent({ eventData, events, setEvents }) {
       const response = await UpdateDonationEventAPI(localEvent.id,localEvent);
       console.log("Updated event:", response.data);
 
-      // ✅ Update the event in main list
+     
       setEvents((prevEvents) =>
         prevEvents.map((ev) =>
           ev.id === response.data.id ? response.data : ev

@@ -9,11 +9,6 @@ import {
 } from "@mui/material";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-
-  
-
-    
- 
 import { addDonationEvent } from "../services/allAPI";
 import { Link,useNavigate } from "react-router-dom";
 
@@ -52,7 +47,7 @@ progress: undefined,
 theme: "dark",
 
 });
- setTimeout(() => navigate("/"), 1000);
+ setTimeout(() => navigate("/eventlist"), 1000);
  
       
     } catch (err) {
@@ -78,9 +73,13 @@ theme: "dark",
         
       }}
     >
-      <Typography
+   <Stack direction={"row"} spacing={5}
+   justifyContent={"space-between"}
+   >
+       <Typography
         variant="h5"
         mb={2}
+        
         sx={{
           color: "#00e5ff",
           textShadow: "0 0 10px rgba(0,229,255,0.6)",
@@ -89,10 +88,33 @@ theme: "dark",
       >
         Create Donation Drive
       </Typography>
+      <Link to={'/eventlist'}>
+      <Button
+             
+              variant="outlined"
+              sx={{
+                borderColor: "#00e5ff",
+                color: "#00e5ff",
+                borderRadius: 2,
+                textTransform: "none",
+                px: 3,
+                "&:hover": {
+                  backgroundColor: "#00e5ff",
+                  color: "#000",
+                  boxShadow: "0 0 10px #00e5ff",
+                },
+              }}
+            >
+              Events
+            </Button>
+      </Link>
+            
+   </Stack>
 
       <Box component="form" sx={{ display: "grid", gap: 2 }}>
         <TextField
           label="Title"
+          required
           value={eventData.title}
           onChange={(e) =>
             setEventData({ ...eventData, title: e.target.value })
@@ -119,6 +141,7 @@ theme: "dark",
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
           <TextField
             label="Date"
+            required
             type="date"
             InputLabelProps={{ shrink: true, style: { color: "#bbb" } }}
             value={eventData.date}
@@ -132,6 +155,7 @@ theme: "dark",
         </Stack>
 
         <TextField
+        required
           label="Location name (e.g., Community Center)"
           value={eventData.locationName}
           onChange={(e) =>

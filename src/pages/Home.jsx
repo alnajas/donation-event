@@ -54,7 +54,7 @@ function Home() {
             needed most.
           </Typography>
 
-          <Link to={"/createevent"}>
+          <Link to={"/login"}>
             <Button
               variant="contained"
               size="large"

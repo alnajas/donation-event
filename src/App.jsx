@@ -9,6 +9,9 @@ import Home from './pages/Home'
 import CreateEvent from './pages/CreateEvent'
 import ViewEventList from './pages/ViewEventList'
 import EventList from './pages/EventList'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import UserEventView from './pages/user/UserEventView'
 
 function App() {
 
@@ -18,10 +21,16 @@ function App() {
       <Header/>
       <Routes>
         <Route path='' element={<Home/>}/>
-        
+          <Route path='login/createevent' element={<CreateEvent/>}/>
           <Route path='createevent' element={<CreateEvent/>}/>
           <Route path='eventlist' element={<ViewEventList/>}/>
           <Route path='list' element={<EventList/>}/>
+           <Route path='login' element={<Login/>}/>
+           <Route path='register' element={<Register/>}/>
+           <Route path='events' element={<UserEventView/>}/>
+           
+           
+
           
          
       </Routes>

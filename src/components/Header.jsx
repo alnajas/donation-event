@@ -31,7 +31,7 @@ function Header() {
               textShadow: "0 0 8px rgba(0,229,255,0.6)",
             }}
           >
-            Local Donation Organizer
+            GiveHub🤝
           </Typography>
 
           

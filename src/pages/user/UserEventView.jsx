@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Avatar, IconButton, Button, TextField, Stack } from '@mui/material';
-import ShareIcon from '@mui/icons-material/Share';
 import { Link } from 'react-router-dom';
-import { deleteEventAPI, getDonationEvent } from '../services/allAPI';
-import EditEvent from '../components/EditEvent';
-import { MdDelete } from "react-icons/md";
+
+
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import GroupIcon from '@mui/icons-material/Group';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
-function ViewEventList() {
+import { getDonationEvent } from '../../services/allAPI';
+function UserEventView() {
     const [eventId,setEventId]=useState("")
     const [events, setEvents] = useState([]);
     const [searchItem,setSearchItem]=useState("")
@@ -27,10 +26,7 @@ function ViewEventList() {
         getlist();
       }, []);
 
-      const deleteEvent=async(id)=>{
-        const response=await deleteEventAPI(id)
-        getlist()
-      }
+      
       const handlesearch=(e)=>{
         
         setSearchItem(e.target.value)
@@ -185,12 +181,10 @@ function ViewEventList() {
                 pt: 2,
               }}
             >
-              <Button onClick={()=>deleteEvent(event.id)} ><MdDelete size={30} className=' text-3xl' />
-</Button>
+              
 
              
-                <EditEvent eventData={event} setEvents={setEvents} eventId={event.id}
-                setEventId={setEventId} events={events}/>
+                
             </Box>
           </Box>
         ))
@@ -206,4 +200,4 @@ function ViewEventList() {
   )
 }
 
-export default ViewEventList
+export default UserEventView

@@ -10,7 +10,7 @@ export const getDonationEvent=async()=>{
 export const UpdateDonationEventAPI=async(id,eventData)=>{
     return CommonAPI('PUT',`${ServerURL}/events/${id}`,eventData)
 }
-//delete
+
 export const deleteEventAPI=async(id)=>{
     return await CommonAPI('DELETE',`${ServerURL}/events/${id}`,{})
 }

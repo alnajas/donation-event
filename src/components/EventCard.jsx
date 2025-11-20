@@ -32,7 +32,8 @@ function EventCard() {
             key={index}
             sx={{
               width: '90%',
-              left: '5%',
+              left: '3%',
+              right:'3%',
               background: 'linear-gradient(145deg, #0a0a0a, #121212)',
               color: 'white',
               borderRadius: 3,
@@ -129,7 +130,6 @@ function EventCard() {
 
             <Divider sx={{ borderColor: 'rgba(255,255,255,0.1)', my: 2 }} />
 
-            {/* Description */}
             <Typography
               variant="body1"
               sx={{
@@ -151,7 +151,7 @@ function EventCard() {
      
       {events.length >= 1 && (
         <Box sx={{ textAlign: 'center', mt: 2 }}>
-          <Link to="/eventlist" style={{ textDecoration: 'none' }}>
+          <Link to="/events" style={{ textDecoration: 'none' }}>
             <Button
               variant="contained"
               sx={{
